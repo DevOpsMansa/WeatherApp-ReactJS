@@ -59,23 +59,30 @@ Deploy the application to a hosting platform like Netlify, Vercel, or GitHub Pag
 Set up continuous integration/continuous deployment (CI/CD) pipelines if necessary.
 Monitor application performance and user feedback for improvements.
 Regularly update dependencies and address any security vulnerabilities.
+
 6. Documentation:
-
-
 Document installation instructions and usage guidelines for developers.
 Provide API documentation and information about any external libraries or tools used.
 Write a README file with project overview, setup instructions, and other relevant details.
+
 7. Future Enhancements:
-
-
 Implement additional features such as weather alerts, historical weather data, or personalized user settings.
 Explore integration with geolocation services for more accurate location detection.
 Consider adding support for multiple languages and internationalization (i18n).
 Gather user feedback and prioritize feature requests for future updates.
+
 8. Conclusion:
-
-
 Regularly maintain and update the application to ensure it remains functional and relevant to users.
 Foster community engagement by accepting contributions and feedback from other developers.
 Continuously evaluate and incorporate new technologies or best practices to improve the application over time.
 
+## Resources
+Tailwind CSS : https://tailwindcss.com/docs/guides/vite
+Project API Source: Rapid API: https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
