@@ -80,6 +80,8 @@ Continuously evaluate and incorporate new technologies or best practices to impr
 Tailwind CSS : https://tailwindcss.com/docs/guides/vite
 Project API Source: Rapid API: https://rapidapi.com/visual-crossing-corporation-visual-crossing-corporation-default/api/visual-crossing-weather
 Glass Card blur: https://css.glass 
+React Documentation: https://reactjs.org/
+Create React App: https://create-react-app.dev/
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -6,6 +6,7 @@ import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
 
 function App() {
   const [input, setInput] = useState(""); // State for input field
+  const [viewMode, setViewMode] = useState("current"); // State for view mode
 
   const { weather, thisLocation, values, setPlace } = useStateContext(); // Accessing state from context
 
@@ -44,32 +45,50 @@ function App() {
             onChange={(e) => setInput(e.target.value)} // Handling input change
           />
         </div>
+        <div>
+          {/* Toggle button for view mode */}
+          <button
+            className="text-white bg-orange-500 rounded-md px-3 py-1"
+            onClick={() =>
+              setViewMode((prevMode) =>
+                prevMode === "current" ? "forecast" : "current"
+              )
+            }
+          >
+            {viewMode === "current" ? "Show Forecast" : "Show Current"}
+          </button>
+        </div>
       </nav>
       {/* Rendering background layout component */}
       <BackgroundLayout />
       <main className="w-full flex flex-wrap gap-8 py-[10%] items-center justify-center">
-        {/* Rendering weather card component */}
-        <WeatherCard
-          place={thisLocation}
-          windspeed={weather.wspd}
-          humidity={weather.humidity}
-          temperature={weather.temp}
-          heatIndex={weather.heatindex}
-          iconString={weather.conditions}
-          conditions={weather.conditions}
-        />
-        <div className="flex justify-center flex-wrap w-[60%]">
-          {/* Container for mini cards */}
-          {values?.slice(1, 7).map((curr) => (
-            // Mapping over values array to render mini card components
-            <MiniCard
-              key={curr.datetime}
-              time={curr.datetime}
-              temp={curr.temp}
-              iconString={curr.conditions}
-            />
-          ))}
-        </div>
+        {/* Conditional rendering based on view mode */}
+        {viewMode === "current" ? (
+          // Render current weather card component
+          <WeatherCard
+            place={thisLocation}
+            windspeed={weather.wspd}
+            humidity={weather.humidity}
+            temperature={weather.temp}
+            heatIndex={weather.heatindex}
+            iconString={weather.conditions}
+            conditions={weather.conditions}
+          />
+        ) : (
+          // Render forecast mini cards
+          <div className="flex justify-center flex-wrap w-[60%]">
+            {/* Container for mini cards */}
+            {values?.slice(1, 7).map((curr) => (
+              // Mapping over values array to render mini card components
+              <MiniCard
+                key={curr.datetime}
+                time={curr.datetime}
+                temp={curr.temp}
+                iconString={curr.conditions}
+              />
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );
