@@ -23,39 +23,44 @@ My mother lives on the other side of planet earth and I always Send her seasonal
 
 4. Development Phases:
 
-Phase 1: Setting Up Basic Structure
+### Phase 1: Setting Up Basic Structure
     * Create main components: App, Header, CurrentWeather, Forecast, etc.
     * Implement basic layout and styling using CSS or CSS frameworks like Bootstrap.
 
-Phase 2: Integrating Weather API
+### Phase 2: Integrating Weather API
     * Set up API requests using Fetch or Axios.
     * Fetch current weather data based on user's location or predefined location.
     * Display fetched data on the UI.
 
-Phase 3: User Interaction
+### Phase 3: User Interaction
     * Implement search functionality to allow users to search for weather in different locations.
     * Add functionality to toggle between current weather and forecast views.
 
-Phase 4: Enhancements and Optimization
+### Phase 4: Enhancements and Optimization
     * Optimize application performance by minimizing API calls and using caching where applicable.
     * Enhance UI/UX with animations, transitions, and responsive design.
     * Implement additional features like unit conversion (e.g., Celsius to Fahrenheit).
 
-Phase 5: Testing and Debugging
+### Phase 5: Testing and Debugging
     * Conduct unit tests for critical components and functionality.
     * Perform cross-browser testing to ensure compatibility.
     * Debug and fix any issues reported during testing.
 
-   1. weather app is unable to fetch weather for other locations
+##### Issues Faced
+* weather app is unable to fetch weather for other locations
         Fix:
-            * Handling Form Submission: Ensure that submitCity function is properly called when the user submits the form (presses Enter).
-            * State Update: Update the place state with the input value when the user submits a city name.
-            * Effect Dependency: Make sure that the effect fetching weather data is triggered whenever the place state changes.
-    2. Unsolved problems.
-            * When the temperature unit is change the converted unit tend to overflow - jeeds to be adjusted
-            * The unit when converted fron celcius to farenheith it does not chenge fro C to F and it supposed to.
-            * Am having forcast not available when weekly forcast is displayed for a certain day
-            *
+        Handling Form Submission: Ensure that submitCity function is properly called when the user submits the form (presses Enter).
+
+        State Update: Update the place state with the input value when the user submits a city name.
+
+        Effect Dependency: Make sure that the effect fetching weather data is triggered whenever the place state changes.
+
+* Unsolved problems.
+        When the temperature unit is change the converted unit tend to overflow - jeeds to be adjusted
+
+        The unit when converted fron celcius to farenheith it does not chenge fro C to F and it supposed to.
+
+        Am having forcast not available when weekly forcast is displayed for a certain day
 
 5. Deployment and Maintenance:
     * Deploy the application to a hosting platform like Netlify, Vercel, or GitHub Pages.
@@ -88,7 +93,7 @@ Phase 5: Testing and Debugging
 * Icons: https://www.flaticon.com/search?type=icon&search-group=all&word=windy&license=&color=orange&shape=&current_section=&author_id=&pack_id=&family_id=&style_id=&type=
 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This vite template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
