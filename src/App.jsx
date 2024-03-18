@@ -7,6 +7,7 @@ import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
 function App() {
   const [input, setInput] = useState(""); // State for input field
   const [viewMode, setViewMode] = useState("current"); // State for view mode
+  const [unit, setUnit] = useState("celsius"); // State for selected unit
 
   const { weather, thisLocation, values, setPlace } = useStateContext(); // Accessing state from context
 
@@ -18,6 +19,21 @@ function App() {
     }
   };
 
+  // Conversion function from Celsius to Fahrenheit
+  const celsiusToFahrenheit = (celsius) => {
+    return (celsius * 9) / 5 + 32;
+  };
+
+  // Conversion function from Fahrenheit to Celsius
+  const fahrenheitToCelsius = (fahrenheit) => {
+    return ((fahrenheit - 32) * 5) / 9;
+  };
+
+  // Function to toggle between Celsius and Fahrenheit
+  const toggleUnit = () => {
+    setUnit((prevUnit) => (prevUnit === "celsius" ? "fahrenheit" : "celsius"));
+  };
+
   return (
     <div className="w-full h-screen text-white px-8">
       {/* Navigation bar */}
@@ -26,11 +42,7 @@ function App() {
 
         <div className="bg-white w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2">
           {/* Search icon */}
-          <img
-            src={search}
-            alt="search"
-            className="w-[1.5rem] h-[1.5rem]"
-          />{" "}
+          <img src={search} alt="search" className="w-[1.5rem] h-[1.5rem]" />{" "}
           {/* Rendering search icon */}
           <input
             onKeyUp={(e) => {
@@ -47,6 +59,12 @@ function App() {
         </div>
         <div>
           {/* Toggle button for view mode */}
+          <button
+            className="text-white bg-orange-500 rounded-md px-3 py-1 mr-4"
+            onClick={toggleUnit}
+          >
+            {unit === "celsius" ? "°C" : "°F"}
+          </button>
           <button
             className="text-white bg-orange-500 rounded-md px-3 py-1"
             onClick={() =>
@@ -69,8 +87,16 @@ function App() {
             place={thisLocation}
             windspeed={weather.wspd}
             humidity={weather.humidity}
-            temperature={weather.temp}
-            heatIndex={weather.heatindex}
+            temperature={
+              unit === "celsius"
+                ? weather.temp
+                : celsiusToFahrenheit(weather.temp)
+            }
+            heatIndex={
+              unit === "celsius"
+                ? weather.heatindex
+                : celsiusToFahrenheit(weather.heatindex)
+            }
             iconString={weather.conditions}
             conditions={weather.conditions}
           />
@@ -83,7 +109,9 @@ function App() {
               <MiniCard
                 key={curr.datetime}
                 time={curr.datetime}
-                temp={curr.temp}
+                temp={
+                  unit === "celsius" ? curr.temp : celsiusToFahrenheit(curr.temp)
+                }
                 iconString={curr.conditions}
               />
             ))}

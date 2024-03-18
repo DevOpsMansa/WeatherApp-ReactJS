@@ -39,10 +39,8 @@ Phase 3: User Interaction
 
 Implement search functionality to allow users to search for weather in different locations.
 Add functionality to toggle between current weather and forecast views.
-Provide user feedback for loading states and error handling.
+
 Phase 4: Enhancements and Optimization
-
-
 Optimize application performance by minimizing API calls and using caching where applicable.
 Enhance UI/UX with animations, transitions, and responsive design.
 Implement additional features like unit conversion (e.g., Celsius to Fahrenheit).
