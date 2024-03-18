@@ -1,13 +1,19 @@
-import { useState } from "react"; 
-import "./App.css"; 
-import search from "./assets/icons/search.svg"; 
+import { useState } from "react";
+import "./App.css";
+import search from "./assets/icons/search.svg";
 import { useStateContext } from "./Context/";
-import { BackgroundLayout, WeatherCard, MiniCard } from "./Components"; 
+import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
 
 function App() {
   const [input, setInput] = useState(""); // State for input field
 
-  const { weather, thisLocation, values } = useStateContext(); // Accessing state from context
+  const { weather, thisLocation, values, place, setplace } = useStateContext(); // Accessing state from context
+  const submitCity = () => {
+    setplace(input)
+    setInput('')
+  }
+
+
 
   return (
     <div className="w-full h-screen text-white px-8">
@@ -17,15 +23,20 @@ function App() {
 
         <div className="bg-white w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2">
           {/* Search icon */}
-          <img src={search} alt="search" className="w-[1.5rem] h-[1.5rem]" /> {/* Rendering search icon */}
-        
+          <img
+            src={search}
+            alt="search"
+            className="w-[1.5rem] h-[1.5rem]"
+          />{" "}
+          {/* Rendering search icon */}
           <input
             onKeyUp={(e) => {
               if (e.key === "Enter") {
-                // Handle form submission if needed
+                // Handle form submission 
+                submitCity
               }
             }}
-            type="text"
+            type="text" placeholder="search city"
             className="focus:outline-none w-full text-[#212121] text-lg" // Styling for input field
             value={input}
             onChange={(e) => setInput(e.target.value)} // Handling input change
@@ -34,22 +45,24 @@ function App() {
       </nav>
       {/* Rendering background layout component */}
       <BackgroundLayout />
-      <main className="w-full felx flex-wrap gap-8 py-[10%] items-center justify-center">
+      <main className="w-full flex flex-wrap gap-8 py-[10%] items-center justify-center">
         {/* Rendering weather card component */}
-        <WeatherCard 
+        <WeatherCard
           place={thisLocation}
-          windspeed={weather.windspeed}
+          windspeed={weather.wspd}
           humidity={weather.humidity}
           temperature={weather.temp}
           heatIndex={weather.heatindex}
           iconString={weather.conditions}
           conditions={weather.conditions}
         />
-        <div className="flex justify-center flex-wrap w-[60%]"> {/* Container for mini cards */}
+        <div className="flex justify-center flex-wrap w-[60%]">
+          {" "}
+          {/* Container for mini cards */}
           {
             // Mapping over values array to render mini card components
-            values?.slice(1, 7).map(curr => (
-              <MiniCard 
+            values?.slice(1, 7).map((curr) => (
+              <MiniCard
                 key={curr.datetime}
                 time={curr.datetime}
                 temp={curr.temp}

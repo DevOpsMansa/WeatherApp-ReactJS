@@ -9,7 +9,7 @@ export const StateContextProvider = ({ children }) => {
     // States to manage weather data, values, selected place, and current location
     const [weather, setWeather] = useState({});
     const [values, setValues] = useState([]);
-    const [place, setPlace] = useState('Houston');
+    const [place, setPlace] = useState('New York');
     const [thisLocation, setLocation] = useState('');
 
     // Function to fetch weather data from API
