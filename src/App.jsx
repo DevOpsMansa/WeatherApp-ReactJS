@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./App.css";
 import search from "./assets/icons/search.svg";
 import { useStateContext } from "./Context/";
-import BackgroundLayout from "./Components/BackgroundLayout";
+import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
 
 function App() {
   const [input, setinput] = useState(""); // State for input field
-  // const { weather } = useStateContext()
+  const { weather, thisLocation, values } = useStateContext()
   // console.log(weather)
 
   return (
@@ -31,10 +31,30 @@ function App() {
           />
         </div>
       </nav>
-      <BackgroundLayout>
-
-      </BackgroundLayout>
+      <BackgroundLayout></BackgroundLayout>
       <main className="w-full felx flex-wrap gap-8 py-[10%] items-center justify-center">
+        <WeatherCard place={thisLocation}
+        windspeed={weather.windspeed}
+        humidity={weather.humidity}
+        temperature={weather.temp}
+        heatIndex={weather.heatindex}
+        iconString={weather.conditions}
+        conditions={weather.conditions}
+
+        />
+        <div className="flex justify-center flex-wrap w-[60%]>
+        {
+          values.slice(1-7).map(curr =>{
+            <miniCard 
+            key={curr.datetime}
+            time={curr.datetime}
+            temp={curr.temp}
+            iconString={curr.conditions}
+
+            />
+          
+        })
+        </div>
         
       </main>
     </div>
