@@ -51,6 +51,11 @@ Phase 5: Testing and Debugging
             * Handling Form Submission: Ensure that submitCity function is properly called when the user submits the form (presses Enter).
             * State Update: Update the place state with the input value when the user submits a city name.
             * Effect Dependency: Make sure that the effect fetching weather data is triggered whenever the place state changes.
+    2. Unsolved problems.
+            * When the temperature unit is change the converted unit tend to overflow - jeeds to be adjusted
+            * The unit when converted fron celcius to farenheith it does not chenge fro C to F and it supposed to.
+            * Am having forcast not available when weekly forcast is displayed for a certain day
+            *
 
 5. Deployment and Maintenance:
     * Deploy the application to a hosting platform like Netlify, Vercel, or GitHub Pages.
