@@ -80,6 +80,7 @@ Phase 5: Testing and Debugging
 * Glass Card blur: https://css.glass 
 * React Documentation: https://reactjs.org/
 * Create React App: https://create-react-app.dev/
+* Icons: https://www.flaticon.com/search?type=icon&search-group=all&word=windy&license=&color=orange&shape=&current_section=&author_id=&pack_id=&family_id=&style_id=&type=
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

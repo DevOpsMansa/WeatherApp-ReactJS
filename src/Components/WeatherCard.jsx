@@ -60,16 +60,15 @@ const WeatherCard = ({
         <p className="flex-1 text-center p-2">{time}</p>
       </div>
       <div className="w-full flex justify-between items-center mt-4 gap-4">
-      <div className="flex-1 text-center p-2 font-bold bg-blue-600 shadow rounded-lg">
-        <span>Wind Speed</span>
-        <span className="font-normal">{windspeed} km/h</span>
-      </div>
-      <div className="flex-1 text-center p-2 font-bold rounded-lg bg-green-600">
-        <span>Humidity</span>
-        <span className="font-normal">{humidity} gm/m&#179;</span>
-        {/* gm/m&#179 = gm/m^3 (grams per cube inverse syntax) */}
-      </div>
-
+        <div className="flex-1 text-center p-2 font-bold bg-blue-600 shadow rounded-lg">
+          <span>Wind Speed</span>
+          <span className="font-normal">{windspeed} km/h</span>
+        </div>
+        <div className="flex-1 text-center p-2 font-bold rounded-lg bg-green-600">
+          <span>Humidity</span>
+          <span className="font-normal">{humidity} gm/m&#179;</span>
+          {/* gm/m&#179 = gm/m^3 (grams per cube inverse syntax) */}
+        </div>
       </div>
       <div className="w-full p-3 mt-4 flex justify-between items-center">
         <p className="font-semibold text-lg">Heat Index</p>
