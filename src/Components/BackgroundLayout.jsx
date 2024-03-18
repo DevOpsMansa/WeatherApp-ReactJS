@@ -7,7 +7,7 @@ import Cloudy from '../assets/images/Cloudy.jpg';
 import Rainy from '../assets/images/Rainy.jpg';
 import Snow from '../assets/images/snow.jpg';
 import Stormy from '../assets/images/Stormy.jpg';
-import Sunny from '../assets/images/Sunny.jpg';
+import Sunny from '../assets/images/Sunny.jpg';  //check on this***
 
 // Component to manage background image based on weather conditions
 const BackgroundLayout = () => {

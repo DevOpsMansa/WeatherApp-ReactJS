@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-*,::before, 
-::after{
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 /* From https://css.glass */
-.glassCard{
-  background: rgba(225, 225, 225, 0.18);;
+.glassCard {
+  background: rgba(34, 34, 1, 0.732);
   box-shadow: 0 8px 32px rgba(33, 38, 135, 0.37);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

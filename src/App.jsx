@@ -23,7 +23,7 @@ function App() {
   const fetchWeatherData = () => {
     // Make API call to fetch weather data for this location
     // Update cachedWeather state with fetched data
-    // Example:
+    //kept in comment due to 2 errors showing up when used - check that
     // fetch(`API_ENDPOINT?location=${thisLocation}`)
     //   .then(response => response.json())
     //   .then(data => {

@@ -3,7 +3,7 @@
 ## Project Plan:
 
 ### User Story
-My mother lives on the other side of planet earth and I always Send her seasonal affectionates by getting clothings, accessories and seasonal needs and but sometimes i tend to send warm weather affectionates and she will sya 'son do you know the weather here is 89 degrees? and you sending me warm clothing'. So, I thought about creating an app where I can search for the weather forcast for her locaion and never miss out on the needful that counts. Also, this app will help other be able to look up any location and get real time weather forcast as desired to make life better and easily adaptable in all weather.
+My mother lives on the other side of planet earth and I always Send her seasonal affectionates by getting clothings, accessories and seasonal needs, but sometimes i tend to send warm weather affectionates and she will say 'son do you know the weather here is 89 degrees and you sending me warm clothing?'. So, I thought about creating an app where I can search for the weather forcast for her locaion and never miss out on the needful that counts. Also, this app will help others be able to look up any location and get real time weather forcast as desired to make life better and easily adaptable in all weather.
 
 1. ## Project Overview:
     * Develop a weather application using React framework.
@@ -25,7 +25,7 @@ My mother lives on the other side of planet earth and I always Send her seasonal
 
 ### Phase 1: Setting Up Basic Structure
     * Create main components: App, Header, CurrentWeather, Forecast, etc.
-    * Implement basic layout and styling using CSS or CSS frameworks like Bootstrap.
+    * Implement basic layout and styling using CSS or CSS frameworks like Bootstrap / Tailwind CSS.
 
 ### Phase 2: Integrating Weather API
     * Set up API requests using Fetch or Axios.
@@ -49,7 +49,7 @@ My mother lives on the other side of planet earth and I always Send her seasonal
 ##### Issues Faced
 * weather app is unable to fetch weather for other locations
 
-        Fix:
+        Fixed:
         
         Handling Form Submission: Ensure that submitCity function is properly called when the user submits the form (presses Enter).
 
@@ -63,7 +63,12 @@ My mother lives on the other side of planet earth and I always Send her seasonal
 
         The unit when converted fron celcius to farenheith it does not chenge fro C to F and it supposed to.
 
-        Am having forcast not available when weekly forcast is displayed for a certain day
+        Am having forcast not available when weekly forcast is displayed for a certain day - might be due to the API data
+
+        *** Optimize application performance by minimizing API calls and using caching where applicable.
+        Make API call to fetch weather data for this location
+        Update cachedWeather state with fetched data
+        kept in comment due to 2 errors showing up when used - check that
 
 5. ## Deployment and Maintenance:
     * Deploy the application to a hosting platform like Netlify, Vercel, or GitHub Pages.
