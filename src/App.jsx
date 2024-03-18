@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import search from "./assets/icons/search.svg";
 import { useStateContext } from "./Context/";
@@ -8,15 +8,31 @@ function App() {
   const [input, setInput] = useState(""); // State for input field
   const [viewMode, setViewMode] = useState("current"); // State for view mode
   const [unit, setUnit] = useState("celsius"); // State for selected unit
+  const [cachedWeather, setCachedWeather] = useState({}); // State for cached weather data
 
   const { weather, thisLocation, values, setPlace } = useStateContext(); // Accessing state from context
 
-  const submitCity = () => {
-    // Ensure input is not empty before updating place
-    if (input.trim() !== "") {
-      setPlace(input.trim()); // Update place state with the input value
-      setInput(""); // Clear input field after submission
+  useEffect(() => {
+    // Check if weather data for this location is cached
+    if (!cachedWeather[thisLocation]) {
+      // Fetch weather data only if not cached
+      fetchWeatherData();
     }
+  }, [thisLocation]); // Fetch weather data when location changes
+
+  const fetchWeatherData = () => {
+    // Make API call to fetch weather data for this location
+    // Update cachedWeather state with fetched data
+    // Example:
+    // fetch(`API_ENDPOINT?location=${thisLocation}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     setCachedWeather(prevWeather => ({
+    //       ...prevWeather,
+    //       [thisLocation]: data
+    //     }));
+    //   })
+    //   .catch(error => console.error("Error fetching weather data:", error));
   };
 
   // Conversion function from Celsius to Fahrenheit
@@ -32,6 +48,14 @@ function App() {
   // Function to toggle between Celsius and Fahrenheit
   const toggleUnit = () => {
     setUnit((prevUnit) => (prevUnit === "celsius" ? "fahrenheit" : "celsius"));
+  };
+
+  const submitCity = () => {
+    // Ensure input is not empty before updating place
+    if (input.trim() !== "") {
+      setPlace(input.trim()); // Update place state with the input value
+      setInput(""); // Clear input field after submission
+    }
   };
 
   return (
@@ -85,20 +109,20 @@ function App() {
           // Render current weather card component
           <WeatherCard
             place={thisLocation}
-            windspeed={weather.wspd}
-            humidity={weather.humidity}
+            windspeed={weather?.wspd}
+            humidity={weather?.humidity}
             temperature={
               unit === "celsius"
-                ? weather.temp
-                : celsiusToFahrenheit(weather.temp)
+                ? weather?.temp
+                : celsiusToFahrenheit(weather?.temp)
             }
             heatIndex={
               unit === "celsius"
-                ? weather.heatindex
-                : celsiusToFahrenheit(weather.heatindex)
+                ? weather?.heatindex
+                : celsiusToFahrenheit(weather?.heatindex)
             }
-            iconString={weather.conditions}
-            conditions={weather.conditions}
+            iconString={weather?.conditions}
+            conditions={weather?.conditions}
           />
         ) : (
           // Render forecast mini cards

@@ -44,15 +44,19 @@ Phase 4: Enhancements and Optimization
 Optimize application performance by minimizing API calls and using caching where applicable.
 Enhance UI/UX with animations, transitions, and responsive design.
 Implement additional features like unit conversion (e.g., Celsius to Fahrenheit).
+
 Phase 5: Testing and Debugging
-
-
 Conduct unit tests for critical components and functionality.
 Perform cross-browser testing to ensure compatibility.
 Debug and fix any issues reported during testing.
+
+   1. weather app is unable to fetch weather for other locations
+        Fix:
+            * Handling Form Submission: Ensure that submitCity function is properly called when the user submits the form (presses Enter).
+            * State Update: Update the place state with the input value when the user submits a city name.
+            * Effect Dependency: Make sure that the effect fetching weather data is triggered whenever the place state changes.
+
 5. Deployment and Maintenance:
-
-
 Deploy the application to a hosting platform like Netlify, Vercel, or GitHub Pages.
 Set up continuous integration/continuous deployment (CI/CD) pipelines if necessary.
 Monitor application performance and user feedback for improvements.
