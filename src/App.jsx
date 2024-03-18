@@ -7,13 +7,15 @@ import { BackgroundLayout, WeatherCard, MiniCard } from "./Components";
 function App() {
   const [input, setInput] = useState(""); // State for input field
 
-  const { weather, thisLocation, values, place, setplace } = useStateContext(); // Accessing state from context
+  const { weather, thisLocation, values, setPlace } = useStateContext(); // Accessing state from context
+
   const submitCity = () => {
-    setplace(input)
-    setInput('')
-  }
-
-
+    // Ensure input is not empty before updating place
+    if (input.trim() !== "") {
+      setPlace(input.trim()); // Update place state with the input value
+      setInput(""); // Clear input field after submission
+    }
+  };
 
   return (
     <div className="w-full h-screen text-white px-8">
@@ -32,11 +34,11 @@ function App() {
           <input
             onKeyUp={(e) => {
               if (e.key === "Enter") {
-                // Handle form submission 
-                submitCity
+                submitCity(); // Call submitCity function when Enter key is pressed
               }
             }}
-            type="text" placeholder="search city"
+            type="text"
+            placeholder="Search city"
             className="focus:outline-none w-full text-[#212121] text-lg" // Styling for input field
             value={input}
             onChange={(e) => setInput(e.target.value)} // Handling input change
@@ -57,19 +59,16 @@ function App() {
           conditions={weather.conditions}
         />
         <div className="flex justify-center flex-wrap w-[60%]">
-          {" "}
           {/* Container for mini cards */}
-          {
+          {values?.slice(1, 7).map((curr) => (
             // Mapping over values array to render mini card components
-            values?.slice(1, 7).map((curr) => (
-              <MiniCard
-                key={curr.datetime}
-                time={curr.datetime}
-                temp={curr.temp}
-                iconString={curr.conditions}
-              />
-            ))
-          }
+            <MiniCard
+              key={curr.datetime}
+              time={curr.datetime}
+              temp={curr.temp}
+              iconString={curr.conditions}
+            />
+          ))}
         </div>
       </main>
     </div>
